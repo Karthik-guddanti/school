@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Nirmala School Website"
+version = "1.0.0"
+id = "artifacts/nirmala-school"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25721
+
+[services.development]
+run = "pnpm --filter @workspace/nirmala-school run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nirmala-school", "run", "build" ]
+publicDir = "artifacts/nirmala-school/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25721"
+BASE_PATH = "/"

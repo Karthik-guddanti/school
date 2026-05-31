@@ -1,0 +1,417 @@
+Build a premium, award-worthy, fully responsive multi-page school website for Nirmala CBSE & State School.
+
+This is NOT a typical school website. The goal is to create a modern, elegant, trustworthy, emotionally engaging digital experience that can compete with top international school websites such as ISB Belgium and other award-winning educational websites.
+
+Brand Identity:
+
+CBSE Theme Color: #8b9682
+
+State Board Theme Color: #d07b74
+
+Use these colors consistently throughout the website.
+
+When displaying CBSE-related content, subtly use #8b9682 accents.
+
+When displaying State Board-related content, subtly use #d07b74 accents.
+
+Design Style:
+
+Modern
+
+Premium
+
+Minimalistic
+
+Elegant
+
+Professional
+
+Institutional
+
+Trust-building
+
+Luxury education branding
+
+Large white spaces
+
+Clean typography
+
+Glassmorphism effects where appropriate
+
+Soft shadows
+
+Rounded corners
+
+Smooth transitions
+
+No clutter
+
+No template-like appearance
+
+The website should feel like a top-tier educational institution rather than a local school website.
+
+Animations:
+
+Use classy and professional animations only.
+
+Avoid flashy effects.
+
+Implement:
+
+Smooth fade-ins
+
+Scroll reveal animations
+
+Parallax hero background
+
+Hover animations
+
+Card lift effects
+
+Image zoom-on-hover
+
+Text reveal effects
+
+Animated counters
+
+Section transition animations
+
+Smooth page transitions
+
+Floating background elements with very subtle movement
+
+Framer Motion animations throughout the website
+
+Performance must remain excellent.
+
+Homepage Hero Section:
+
+Use a full-screen cinematic hero.
+
+Include a high-quality school campus background image/video.
+
+Overlay with elegant typography.
+
+Main Headline:
+
+"Where Knowledge Meets Character, Excellence Meets Opportunity, and Every Child Discovers Their Future."
+
+Subheading:
+
+Providing quality CBSE and State Board education through academic excellence, values, innovation, and holistic development.
+
+Primary CTA:
+
+Admissions Open
+
+Secondary CTA:
+
+Schedule Campus Visit
+
+Hero Features:
+
+Academic Excellence
+
+Character Development
+
+Future Readiness
+
+Safe Campus
+
+Smart Learning
+
+Homepage Sections:
+
+1. Hero Section
+
+2. About Nirmala School
+
+3. Vision & Mission
+
+4. School Highlights
+
+Animated Statistics:
+
+Years of Excellence
+
+Students Enrolled
+
+Qualified Teachers
+
+Academic Results
+
+Sports Achievements
+
+5. Why Choose Nirmala
+
+CBSE Curriculum
+
+State Board Excellence
+
+Smart Classrooms
+
+Digital Learning
+
+Experienced Faculty
+
+Safe Environment
+
+Sports Programs
+
+Individual Attention
+
+6. Academic Programs
+
+Separate cards:
+
+CBSE Division
+
+State Board Division
+
+7. Facilities Showcase
+
+Smart Classrooms
+
+Computer Labs
+
+Science Labs
+
+Library
+
+Sports Grounds
+
+Transport
+
+Activity Rooms
+
+CCTV Security
+
+8. Campus Life
+
+Sports
+
+Arts
+
+Music
+
+Dance
+
+Celebrations
+
+Competitions
+
+Student Clubs
+
+9. Student Achievement Section
+
+10. Parent Testimonials
+
+11. Gallery Preview
+
+12. News & Events
+
+13. Admissions CTA
+
+14. Footer
+
+About Page:
+
+Use the provided About School content.
+
+Create visually rich sections:
+
+History
+
+Vision
+
+Mission
+
+Core Values
+
+Motto
+
+Leadership Philosophy
+
+Educational Approach
+
+Interactive timeline section
+
+Vision and Mission cards
+
+Values grid
+
+Academics Page:
+
+Separate visually distinct sections for:
+
+CBSE Curriculum
+
+State Board Curriculum
+
+Teaching Methodology
+
+Assessment System
+
+Academic Excellence
+
+Learning Resources
+
+Smart Learning Environment
+
+Admissions Page:
+
+Admission Process Timeline
+
+Eligibility
+
+Documents Required
+
+FAQ
+
+Admission Enquiry Form
+
+Contact Counsellor CTA
+
+Campus Life Page:
+
+Large photography-driven storytelling.
+
+Show:
+
+Sports
+
+Arts
+
+Music
+
+Dance
+
+Cultural Activities
+
+Celebrations
+
+Field Trips
+
+Student Leadership
+
+Facilities Page:
+
+Interactive facility cards.
+
+Use image galleries.
+
+Include detailed descriptions.
+
+Gallery Page:
+
+Masonry layout
+
+Category filters
+
+Campus
+
+Classrooms
+
+Events
+
+Sports
+
+Activities
+
+Achievements
+
+Faculty Page:
+
+Professional teacher profiles.
+
+Department filtering.
+
+Qualification display.
+
+Achievements Page:
+
+Academic Toppers
+
+Sports Winners
+
+Competition Winners
+
+Alumni Success Stories
+
+Contact Page:
+
+Use:
+
+Nirmala CBSE School, Atmakur, Mangalagiri, Guntur, Andhra Pradesh
+
+Display:
+
+Phone:
++91 7093929711
+08645-237237
+
+Email:
+[nirmalacbsemgl7@gmail.com](mailto:nirmalacbsemgl7@gmail.com)
+
+Website:
+nirmalacbsemgl.com
+
+Include:
+
+Embedded map
+
+Contact form
+
+Quick contact cards
+
+Directions button
+
+Additional Premium Features:
+
+Sticky transparent navbar
+
+Mega menu navigation
+
+Dark mode support
+
+Accessibility support
+
+SEO optimization
+
+Schema markup
+
+Fast loading performance
+
+Image optimization
+
+Lazy loading
+
+Mobile-first design
+
+PWA-ready architecture
+
+CMS-ready structure
+
+Social media integration
+
+Instagram feed section
+
+School brochure download section
+
+Virtual campus tour placeholder
+
+Principal message section
+
+Animated statistics dashboard
+
+Student success stories
+
+Trust indicators
+
+Awards & recognition section
+
+Design Goal:
+
+Every section should communicate trust, excellence, growth, opportunity, and student success.
+
+The final website should feel like a premium international school website rather than a traditional local school website.

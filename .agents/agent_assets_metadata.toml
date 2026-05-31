@@ -1,0 +1,92 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "rRVxY0ebVzGuQ5laTk7VK"
+uri = "file://artifacts/nirmala-school/src/assets/hero.png"
+type = "image"
+title = "hero campus landscape"
+
+[[generated]]
+id = "hDWeSlkPh1LghPEWH4apF"
+uri = "file://artifacts/nirmala-school/src/assets/about-header.png"
+type = "image"
+title = "about page header"
+
+[[generated]]
+id = "NoEUV7fs3vJfYc6J1LfxA"
+uri = "file://artifacts/nirmala-school/src/assets/principal.png"
+type = "image"
+title = "principal headshot"
+
+[[generated]]
+id = "dbACl6Lcyf4N7v0P05FNG"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-1.png"
+type = "image"
+title = "students on campus"
+
+[[generated]]
+id = "XEQZMt_Di-iGbGwXu7gu6"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-2.png"
+type = "image"
+title = "sports field action"
+
+[[generated]]
+id = "7hwB4C-ksb5cEi3KV9lIs"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-3.png"
+type = "image"
+title = "smart classroom"
+
+[[generated]]
+id = "vkjb-izqHgoK5Kx0519D2"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-4.png"
+type = "image"
+title = "cultural stage performance"
+
+[[generated]]
+id = "5AWKgoFMfqvFilVc2N1AG"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-5.png"
+type = "image"
+title = "science lab experiment"
+
+[[generated]]
+id = "__KmzHux_YvpPpS1_2fvO"
+uri = "file://artifacts/nirmala-school/src/assets/gallery-6.png"
+type = "image"
+title = "spacious sunny library"
+
+[[generated]]
+id = "gzGvvgZysC_HovZR9E9Ss"
+uri = "file://artifacts/nirmala-school/src/assets/campus-1.png"
+type = "image"
+title = "courtyard students"
+
+[[generated]]
+id = "nqtMQgKrAOQXO6ozUpL9p"
+uri = "file://artifacts/nirmala-school/src/assets/facility-smart-class.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Ftg8IjWpEYSDkSGmM58z5"
+uri = "file://artifacts/nirmala-school/src/assets/facility-library.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "fdOopFi1nPV2cr0s5p2Iz"
+uri = "file://artifacts/nirmala-school/src/assets/facility-computer-lab.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "A5gIDGtrx6jHPH-cMWD5Q"
+uri = "file://artifacts/nirmala-school/src/assets/facility-sports.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "l0B9udpRnIum41JmKXNIx"
+uri = "file://artifacts/nirmala-school/src/assets/campus-2.png"
+type = "image"
+title = "generated_image"
