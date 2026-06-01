@@ -11,6 +11,18 @@
     },
     {
       "path": "./lib/api-zod"
+    },
+    {
+      "path": "./artifacts/api-server"
+    },
+    {
+      "path": "./artifacts/nirmala-school"
+    },
+    {
+      "path": "./artifacts/mockup-sandbox"
+    },
+    {
+      "path": "./scripts"
     }
   ]
 }
