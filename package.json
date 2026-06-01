@@ -8,7 +8,7 @@
     "scripts"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev -w @workspace/api-server\" \"npm run dev -w @workspace/nirmala-school\" \"npm run dev -w @workspace/mockup-sandbox\"",
+    "dev": "concurrently \"npm run dev -w @workspace/api-server\" \"npm run dev -w @workspace/nirmala-school\"",
     "build": "npm run typecheck && npm run build --workspaces --if-present",
     "typecheck:libs": "tsc --build",
     "typecheck": "npm run typecheck:libs && npm run typecheck --workspaces --if-present"
