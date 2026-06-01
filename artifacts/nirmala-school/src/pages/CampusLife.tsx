@@ -5,13 +5,14 @@ import img2 from "@/assets/gallery-2.png"; // sports
 import img3 from "@/assets/campus-1.png"; // courtyard
 import img4 from "@/assets/campus-2.png"; // music
 
-function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function FadeUp({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
+      className={className}
     >
       {children}
     </motion.div>

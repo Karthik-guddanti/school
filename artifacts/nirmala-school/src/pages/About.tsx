@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
+import { User } from "lucide-react";
 import headerImg from "@/assets/about-header.png";
-import principalImg from "@/assets/principal.png";
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -63,8 +63,10 @@ export default function About() {
           </FadeUp>
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <FadeUp>
-              <div className="w-64 h-64 shrink-0 rounded-full overflow-hidden shadow-xl border-4 border-background relative z-10">
-                <img src={principalImg || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80'} alt="Principal" className="w-full h-full object-cover" />
+              <div className="w-64 h-64 shrink-0 rounded-full overflow-hidden shadow-xl border-4 border-background relative z-10 bg-gradient-to-tr from-primary/10 to-secondary/10 flex items-center justify-center group border border-primary/20">
+                <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+                  <User className="w-12 h-12" />
+                </div>
               </div>
             </FadeUp>
             <FadeUp delay={0.2}>

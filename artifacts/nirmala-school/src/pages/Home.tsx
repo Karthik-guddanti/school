@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { ArrowRight, BookOpen, Heart, Shield, Sparkles, Trophy, CheckCircle2, Star, Quote, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero.png";
-import principalImg from "@/assets/principal.png";
 import facilitySmartClass from "@/assets/facility-smart-class.png";
 import facilityComputerLab from "@/assets/facility-computer-lab.png";
 import facilityLibrary from "@/assets/facility-library.png";
@@ -119,12 +118,12 @@ export default function Home() {
             </FadeUp>
             <FadeUp delay={0.2}>
               <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
-                  <img 
-                    src={principalImg || 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80'} 
-                    alt="Principal" 
-                    className="w-full h-full object-cover object-center"
-                  />
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-primary/10 via-card to-secondary/10 border border-primary/20 flex flex-col items-center justify-center p-8 text-center group">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform duration-500">
+                    <Sparkles className="w-10 h-10" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-foreground mb-2">Nirmala School Campus</h3>
+                  <p className="text-muted-foreground text-sm max-w-xs">Establishing a foundation of wisdom, values, and academic distinction since inception.</p>
                 </div>
                 <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-full blur-3xl" />
                 <div className="absolute -z-10 -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
