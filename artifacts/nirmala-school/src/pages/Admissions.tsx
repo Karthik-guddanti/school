@@ -4,6 +4,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { CheckCircle2, FileText, CalendarDays } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { useToast } from "@/hooks/use-toast";
+import { useCreateEnquiry } from "@workspace/api-client-react";
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -18,7 +21,51 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
+interface EnquiryFormData {
+  parentName: string;
+  studentName: string;
+  phone: string;
+  email: string;
+  grade: string;
+  message?: string;
+}
+
 export default function Admissions() {
+  const { toast } = useToast();
+  const { mutate: submitEnquiry, isPending } = useCreateEnquiry();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<EnquiryFormData>({
+    defaultValues: {
+      parentName: "",
+      studentName: "",
+      phone: "",
+      email: "",
+      grade: "",
+      message: "",
+    }
+  });
+
+  const onSubmit = (data: EnquiryFormData) => {
+    submitEnquiry(
+      { data },
+      {
+        onSuccess: () => {
+          toast({
+            title: "Enquiry Submitted",
+            description: "Thank you! We have received your admission enquiry.",
+          });
+          reset();
+        },
+        onError: (err: any) => {
+          toast({
+            variant: "destructive",
+            title: "Submission Failed",
+            description: err?.message || "There was a problem submitting your enquiry.",
+          });
+        }
+      }
+    );
+  };
+
   return (
     <div className="pt-24 pb-16 min-h-screen">
       <div className="container px-4 md:px-6">
@@ -108,40 +155,53 @@ export default function Admissions() {
           <FadeUp delay={0.2}>
             <div className="bg-card p-8 rounded-3xl border border-border shadow-xl">
               <h3 className="font-serif text-2xl font-bold mb-6">Admission Enquiry Form</h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Parent/Guardian Name</label>
-                    <Input placeholder="Enter your name" className="bg-background rounded-lg h-12" />
+                    <Input {...register("parentName", { required: "Parent/Guardian name is required" })} placeholder="Enter your name" className="bg-background rounded-lg h-12" />
+                    {errors.parentName && <span className="text-red-500 text-xs">{errors.parentName.message}</span>}
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Student Name</label>
-                    <Input placeholder="Enter child's name" className="bg-background rounded-lg h-12" />
+                    <Input {...register("studentName", { required: "Student name is required" })} placeholder="Enter child's name" className="bg-background rounded-lg h-12" />
+                    {errors.studentName && <span className="text-red-500 text-xs">{errors.studentName.message}</span>}
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Phone Number</label>
-                    <Input type="tel" placeholder="Enter your phone number" className="bg-background rounded-lg h-12" />
+                    <Input type="tel" {...register("phone", { required: "Phone number is required" })} placeholder="Enter your phone number" className="bg-background rounded-lg h-12" />
+                    {errors.phone && <span className="text-red-500 text-xs">{errors.phone.message}</span>}
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Email Address</label>
-                    <Input type="email" placeholder="Enter your email" className="bg-background rounded-lg h-12" />
+                    <Input type="email" {...register("email", { 
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address"
+                      }
+                    })} placeholder="Enter your email" className="bg-background rounded-lg h-12" />
+                    {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Grade Applying For</label>
-                  <Input placeholder="e.g., Class V" className="bg-background rounded-lg h-12" />
+                  <Input {...register("grade", { required: "Grade applying for is required" })} placeholder="e.g., Class V" className="bg-background rounded-lg h-12" />
+                  {errors.grade && <span className="text-red-500 text-xs">{errors.grade.message}</span>}
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Any specific questions?</label>
-                  <Textarea placeholder="How can we help you?" className="bg-background min-h-[120px] rounded-xl" />
+                  <Textarea {...register("message")} placeholder="How can we help you?" className="bg-background min-h-[120px] rounded-xl" />
                 </div>
 
-                <Button className="w-full h-14 text-base rounded-full font-semibold shadow-md">Submit Enquiry</Button>
+                <Button type="submit" disabled={isPending} className="w-full h-14 text-base rounded-full font-semibold shadow-md">
+                  {isPending ? "Submitting..." : "Submit Enquiry"}
+                </Button>
               </form>
             </div>
           </FadeUp>

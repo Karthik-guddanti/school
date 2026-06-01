@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useTheme } from "@/components/theme-provider";
@@ -23,6 +24,8 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [location] = useLocation();
 
+  const showSolidNavbar = isScrolled || location !== "/";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -34,7 +37,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+        showSolidNavbar
           ? "bg-background/90 backdrop-blur-md border-b shadow-sm py-3"
           : "bg-transparent py-5"
       }`}
@@ -46,10 +49,10 @@ export default function Navbar() {
               N
             </div>
             <div className="flex flex-col">
-              <span className={`font-serif font-bold text-xl leading-tight ${isScrolled ? "text-foreground" : "text-white drop-shadow-md"}`}>
+              <span className={`font-serif font-bold text-xl leading-tight ${showSolidNavbar ? "text-foreground" : "text-white drop-shadow-md"}`}>
                 Nirmala School
               </span>
-              <span className={`text-[10px] uppercase tracking-widest font-medium ${isScrolled ? "text-muted-foreground" : "text-white/80 drop-shadow-sm"}`}>
+              <span className={`text-[10px] uppercase tracking-widest font-medium ${showSolidNavbar ? "text-muted-foreground" : "text-white/80 drop-shadow-sm"}`}>
                 CBSE & State Board
               </span>
             </div>
@@ -57,20 +60,20 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            <div className={`flex items-center gap-1 bg-background/80 backdrop-blur-md px-4 py-2 rounded-full border ${isScrolled ? "shadow-sm" : "border-white/20 text-white"}`}>
+            <div className={`flex items-center gap-1 bg-background/80 backdrop-blur-md px-4 py-2 rounded-full border ${showSolidNavbar ? "shadow-sm" : "border-white/20 text-white"}`}>
               {NAV_LINKS.slice(0, 5).map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
                   className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors hover:text-primary ${
-                    location === link.path ? "text-primary bg-primary/10" : isScrolled ? "text-foreground" : "text-white hover:bg-white/10"
+                    location === link.path ? "text-primary bg-primary/10" : showSolidNavbar ? "text-foreground" : "text-white hover:bg-white/10"
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
               <div className="relative group px-3 py-1.5">
-                <span className={`text-sm font-medium flex items-center gap-1 cursor-pointer transition-colors hover:text-primary ${isScrolled ? "text-foreground" : "text-white"}`}>
+                <span className={`text-sm font-medium flex items-center gap-1 cursor-pointer transition-colors hover:text-primary ${showSolidNavbar ? "text-foreground" : "text-white"}`}>
                   More <ChevronDown className="w-3 h-3" />
                 </span>
                 <div className="absolute top-full right-0 mt-2 w-48 bg-background border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-right scale-95 group-hover:scale-100 flex flex-col p-2">
@@ -90,7 +93,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full ${isScrolled ? "" : "text-white hover:bg-white/20"}`}
+              className={`rounded-full ${showSolidNavbar ? "" : "text-white hover:bg-white/20"}`}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -98,7 +101,7 @@ export default function Navbar() {
               <span className="sr-only">Toggle theme</span>
             </Button>
             
-            <Button asChild className="rounded-full font-semibold px-6 shadow-md hover:shadow-lg transition-all" variant={isScrolled ? "default" : "secondary"}>
+            <Button asChild className="rounded-full font-semibold px-6 shadow-md hover:shadow-lg transition-all" variant={showSolidNavbar ? "default" : "secondary"}>
               <Link href="/admissions">Admissions</Link>
             </Button>
           </div>
@@ -108,7 +111,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className={isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}
+              className={showSolidNavbar || isMobileMenuOpen ? "text-foreground" : "text-white"}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -117,7 +120,7 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className={isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}
+              className={showSolidNavbar || isMobileMenuOpen ? "text-foreground" : "text-white"}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

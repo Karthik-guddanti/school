@@ -10,6 +10,10 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: enquiry
+    description: Enquiry operations
+  - name: contact
+    description: Contact operations
 paths:
   /healthz:
     get:
@@ -24,6 +28,44 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /enquiries:
+    post:
+      operationId: createEnquiry
+      tags: [enquiry]
+      summary: Create admission enquiry
+      description: Submit a new student admission enquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EnquiryInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnquiryResponse"
+  /contact-messages:
+    post:
+      operationId: createContactMessage
+      tags: [contact]
+      summary: Create contact message
+      description: Submit a new contact/enquiry message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactMessageInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactMessageResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +75,98 @@ components:
           type: string
       required:
         - status
+    EnquiryInput:
+      type: object
+      properties:
+        parentName:
+          type: string
+        studentName:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+          format: email
+        grade:
+          type: string
+        message:
+          type: string
+      required:
+        - parentName
+        - studentName
+        - phone
+        - email
+        - grade
+    EnquiryResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        parentName:
+          type: string
+        studentName:
+          type: string
+        phone:
+          type: string
+          format: phone
+        email:
+          type: string
+          format: email
+        grade:
+          type: string
+        message:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - parentName
+        - studentName
+        - phone
+        - email
+        - grade
+        - createdAt
+    ContactMessageInput:
+      type: object
+      properties:
+        fullName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        message:
+          type: string
+      required:
+        - fullName
+        - email
+        - phone
+        - message
+    ContactMessageResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        fullName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        message:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - fullName
+        - email
+        - phone
+        - message
+        - createdAt
+
 

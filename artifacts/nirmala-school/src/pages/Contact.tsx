@@ -2,8 +2,51 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { useToast } from "@/hooks/use-toast";
+import { useCreateContactMessage } from "@workspace/api-client-react";
+
+interface ContactFormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
 
 export default function Contact() {
+  const { toast } = useToast();
+  const { mutate: submitContactMessage, isPending } = useCreateContactMessage();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+      message: "",
+    }
+  });
+
+  const onSubmit = (data: ContactFormData) => {
+    submitContactMessage(
+      { data },
+      {
+        onSuccess: () => {
+          toast({
+            title: "Message Sent",
+            description: "Thank you! We have received your message and will get back to you shortly.",
+          });
+          reset();
+        },
+        onError: (err: any) => {
+          toast({
+            variant: "destructive",
+            title: "Failed to Send Message",
+            description: err?.message || "There was a problem submitting your message. Please try again.",
+          });
+        }
+      }
+    );
+  };
+
   return (
     <div className="pt-24 pb-16 min-h-screen">
       <div className="container px-4 md:px-6">
@@ -58,27 +101,37 @@ export default function Contact() {
           <div className="bg-card p-8 md:p-10 rounded-3xl border border-border shadow-xl">
             <h3 className="font-serif text-3xl font-bold mb-2">Send us a Message</h3>
             <p className="text-muted-foreground mb-8">Fill out the form below and our team will get back to you promptly.</p>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Full Name</label>
-                  <Input placeholder="Enter your name" className="bg-background rounded-xl h-12" />
+                  <Input {...register("fullName", { required: "Full name is required" })} placeholder="Enter your name" className="bg-background rounded-xl h-12" />
+                  {errors.fullName && <span className="text-red-500 text-xs">{errors.fullName.message}</span>}
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Email Address</label>
-                  <Input type="email" placeholder="Enter your email" className="bg-background rounded-xl h-12" />
+                  <Input type="email" {...register("email", { 
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address"
+                    }
+                  })} placeholder="Enter your email" className="bg-background rounded-xl h-12" />
+                  {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Phone Number</label>
-                <Input type="tel" placeholder="Enter your phone number" className="bg-background rounded-xl h-12" />
+                <Input type="tel" {...register("phone", { required: "Phone number is required" })} placeholder="Enter your phone number" className="bg-background rounded-xl h-12" />
+                {errors.phone && <span className="text-red-500 text-xs">{errors.phone.message}</span>}
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <Textarea placeholder="How can we help you?" className="bg-background min-h-[150px] rounded-xl" />
+                <Textarea {...register("message", { required: "Message is required" })} placeholder="How can we help you?" className="bg-background min-h-[150px] rounded-xl" />
+                {errors.message && <span className="text-red-500 text-xs">{errors.message.message}</span>}
               </div>
-              <Button className="w-full h-14 rounded-full text-base font-semibold shadow-md hover:shadow-lg">
-                Send Message
+              <Button type="submit" disabled={isPending} className="w-full h-14 rounded-full text-base font-semibold shadow-md hover:shadow-lg">
+                {isPending ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
