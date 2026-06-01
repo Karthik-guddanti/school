@@ -8,26 +8,11 @@ servers:
   - url: /api
     description: Base API path
 tags:
-  - name: health
-    description: Health operations
   - name: enquiry
     description: Enquiry operations
   - name: contact
     description: Contact operations
 paths:
-  /healthz:
-    get:
-      operationId: healthCheck
-      tags: [health]
-      summary: Health check
-      description: Returns server health status
-      responses:
-        "200":
-          description: Healthy
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HealthStatus"
   /enquiries:
     post:
       operationId: createEnquiry
@@ -68,13 +53,6 @@ paths:
                 $ref: "#/components/schemas/ContactMessageResponse"
 components:
   schemas:
-    HealthStatus:
-      type: object
-      properties:
-        status:
-          type: string
-      required:
-        - status
     EnquiryInput:
       type: object
       properties:
@@ -168,5 +146,6 @@ components:
         - phone
         - message
         - createdAt
+
 
 

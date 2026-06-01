@@ -10,4 +10,3 @@ export * from './contactMessageInput';
 export * from './contactMessageResponse';
 export * from './enquiryInput';
 export * from './enquiryResponse';
-export * from './healthStatus';
